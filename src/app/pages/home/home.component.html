@@ -1,0 +1,29 @@
+
+
+<div class="todo">
+   <div class="container d-flex flex-column justify-content-center align-items-center">
+   
+     
+      
+       <div class="addInput m-5">
+           <input class="inputAdd" type="text" [(ngModel)]="newTaskTitle"/>&nbsp;
+           <button class="btn btn-primary" (click)="addNewTask()">Add New Item</button>
+       </div>
+       
+       <div class="box py-5">
+           <ul class="list">
+               @for(item of todos;track item.id) {
+               <li class=" d-flex justify-content-between">
+                   <input type="checkbox" class="" name="select" id="" value="1">
+                   <p [ngClass]="item.completed? 'compl strikethrough' : 'strikethrough'">{{item.completed ? " " : ""}}{{item.title}}</p>
+                   <a data-mdb-toggle="tooltip" title="Remove" (click)="delete(item.id)">
+                   <i class="trash bi-trash text-danger "></i></a>
+               </li>
+           }
+           </ul>
+       </div>
+
+   </div>
+</div>
+
+
